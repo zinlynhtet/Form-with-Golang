@@ -212,8 +212,6 @@ func main() {
 	http.HandleFunc("/form", formHandler)
 	http.HandleFunc("/hello", helloHandler)
 
-	fmt.Printf("🚀 Server starting at http://localhost:8080\n")
-	fmt.Printf("📋 Contact form at http://localhost:8080/form.html\n")
 	if err := http.ListenAndServe(":8080", nil); err != nil {
 		log.Fatal(err)
 	}
