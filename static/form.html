@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Professional Contact Form - Get in touch with us">
+    <title>Contact Us | Professional Form</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/shared.css">
+    <link rel="stylesheet" href="css/form.css">
+</head>
+
+<body>
+    <!-- Background Orbs -->
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+
+    <div class="contact-container">
+        <div class="form-card">
+            <!-- Success Overlay -->
+            <div class="success-overlay" id="successOverlay">
+                <div class="success-checkmark">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <polyline points="20 6 9 17 4 12"></polyline>
+                    </svg>
+                </div>
+                <div class="success-title">Message Sent!</div>
+                <div class="success-text">We'll get back to you within 24 hours.</div>
+                <button class="success-btn" id="resetBtn" type="button">Send Another Message</button>
+            </div>
+
+            <!-- Header -->
+            <div class="form-header">
+                <div class="form-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                        <polyline points="22,6 12,13 2,6"></polyline>
+                    </svg>
+                </div>
+                <h1>Get in Touch</h1>
+                <p>Have a question or want to work together? Drop us a message.</p>
+            </div>
+
+            <!-- Step Indicators -->
+            <div class="step-indicators">
+                <div class="step-dot active" data-step="1">
+                    <span class="step-number">1</span>
+                </div>
+                <div class="step-line">
+                    <div class="step-line-fill" id="stepLine1"></div>
+                </div>
+                <div class="step-dot" data-step="2">
+                    <span class="step-number">2</span>
+                </div>
+                <div class="step-line">
+                    <div class="step-line-fill" id="stepLine2"></div>
+                </div>
+                <div class="step-dot" data-step="3">
+                    <span class="step-number">3</span>
+                </div>
+            </div>
+            <div class="step-label" id="stepLabel">Personal Info</div>
+
+            <!-- Form -->
+            <form action="https://formspree.io/f/mkopkbjz" method="post" id="contactForm" novalidate>
+
+                <!-- Step 1: Name -->
+                <div class="form-step active" data-step="1">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label" for="firstName">
+                                First Name <span class="required-star">*</span>
+                            </label>
+                            <input type="text" class="form-input" id="firstName" name="first_name" placeholder=""
+                                required minlength="2" autocomplete="given-name">
+                            <div class="error-message" id="firstNameError">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="12" cy="12" r="10"></circle>
+                                    <line x1="12" y1="8" x2="12" y2="12"></line>
+                                    <line x1="12" y1="16" x2="12.01" y2="16"></line>
+                                </svg>
+                                <span>First name is required (min 2 characters)</span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="lastName">
+                                Last Name <span class="required-star">*</span>
+                            </label>
+                            <input type="text" class="form-input" id="lastName" name="last_name" placeholder="" required
+                                minlength="2" autocomplete="family-name">
+                            <div class="error-message" id="lastNameError">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="12" cy="12" r="10"></circle>
+                                    <line x1="12" y1="8" x2="12" y2="12"></line>
+                                    <line x1="12" y1="16" x2="12.01" y2="16"></line>
+                                </svg>
+                                <span>Last name is required (min 2 characters)</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 2: Contact Info -->
+                <div class="form-step" data-step="2">
+                    <div class="form-group">
+                        <label class="form-label" for="email">
+                            Email Address <span class="required-star">*</span>
+                        </label>
+                        <input type="email" class="form-input" id="email" name="email" placeholder="Enter your email"
+                            required autocomplete="email">
+                        <div class="error-message" id="emailError">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <line x1="12" y1="8" x2="12" y2="12"></line>
+                                <line x1="12" y1="16" x2="12.01" y2="16"></line>
+                            </svg>
+                            <span>Please enter a valid email address</span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="phone">
+                            Phone Number <span class="required-star">*</span>
+                        </label>
+                        <input type="tel" class="form-input" id="phone" name="phone"
+                            placeholder="Enter your phone number" required autocomplete="tel">
+                        <div class="error-message" id="phoneError">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <line x1="12" y1="8" x2="12" y2="12"></line>
+                                <line x1="12" y1="16" x2="12.01" y2="16"></line>
+                            </svg>
+                            <span>Please enter a valid phone number</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 3: Subject + Message + Privacy -->
+                <div class="form-step" data-step="3">
+                    <div class="form-group">
+                        <label class="form-label" for="subject">
+                            Subject <span class="required-star">*</span>
+                        </label>
+                        <select class="form-select" id="subject" name="subject" required>
+                            <option value="" disabled selected>Select a subject...</option>
+                            <option value="general">General Inquiry</option>
+                            <option value="support">Technical Support</option>
+                            <option value="feedback">Feedback</option>
+                            <option value="partnership">Partnership</option>
+                            <option value="other">Other</option>
+                        </select>
+                        <div class="error-message" id="subjectError">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <line x1="12" y1="8" x2="12" y2="12"></line>
+                                <line x1="12" y1="16" x2="12.01" y2="16"></line>
+                            </svg>
+                            <span>Please select a subject</span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="message">
+                            Message <span class="required-star">*</span>
+                        </label>
+                        <textarea class="form-textarea" id="message" name="message"
+                            placeholder="Tell us what's on your mind..." required minlength="10"
+                            maxlength="1000"></textarea>
+                        <div class="char-counter" id="charCounter">0 / 1000</div>
+                        <div class="error-message" id="messageError">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <line x1="12" y1="8" x2="12" y2="12"></line>
+                                <line x1="12" y1="16" x2="12.01" y2="16"></line>
+                            </svg>
+                            <span>Message must be at least 10 characters long</span>
+                        </div>
+                    </div>
+                    <label class="checkbox-group" id="privacyGroup">
+                        <input type="checkbox" id="privacy" name="privacy" required>
+                        <div class="custom-checkbox">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="20 6 9 17 4 12"></polyline>
+                            </svg>
+                        </div>
+                        <span class="checkbox-label">
+                            I agree to the <a href="#" onclick="event.stopPropagation();">Privacy Policy</a> and consent
+                            to being contacted. <span class="required-star">*</span>
+                        </span>
+                    </label>
+                    <div class="error-message" id="privacyError" style="margin-top: -0.5rem; margin-bottom: 0.75rem;">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <line x1="12" y1="8" x2="12" y2="12"></line>
+                            <line x1="12" y1="16" x2="12.01" y2="16"></line>
+                        </svg>
+                        <span>You must agree to the privacy policy</span>
+                    </div>
+                </div>
+
+                <!-- Navigation Buttons -->
+                <div class="form-nav">
+                    <button type="button" class="nav-btn nav-btn-back" id="backBtn" style="visibility: hidden;">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="19" y1="12" x2="5" y2="12"></line>
+                            <polyline points="12 19 5 12 12 5"></polyline>
+                        </svg>
+                        Back
+                    </button>
+                    <button type="button" class="nav-btn nav-btn-next" id="nextBtn">
+                        Next
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                            <polyline points="12 5 19 12 12 19"></polyline>
+                        </svg>
+                    </button>
+                    <button type="submit" class="submit-btn" id="submitBtn" style="display: none;">
+                        <span class="btn-content">
+                            <span class="btn-text">Send Message</span>
+                            <svg class="btn-icon" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="22" y1="2" x2="11" y2="13"></line>
+                                <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                            </svg>
+                            <div class="btn-spinner"></div>
+                        </span>
+                    </button>
+                </div>
+            </form>
+
+            <!-- Footer -->
+            <div class="form-footer">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                    <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                </svg>
+                Your information is encrypted and secure.
+            </div>
+        </div>
+    </div>
+
+    <script src="js/form.js"></script>
+</body>
+
+</html>
