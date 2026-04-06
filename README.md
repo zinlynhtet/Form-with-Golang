@@ -105,7 +105,7 @@ GitHub Pages serves static files only (no Go backend), so the form uses [Formspr
 ### Step 1: Set Up Formspree
 
 1. Go to [formspree.io](https://formspree.io) and sign up (free tier: 50 submissions/month)
-2. Create a new form → Enter your email `mackk5504@gmail.com`
+2. Create a new form → Enter your email `example@gmail.com`
 3. Copy your form endpoint URL (e.g., `https://formspree.io/f/xAbCdEfG`)
 
 ### Step 2: Update the Form Action
@@ -119,16 +119,14 @@ In `static/form.html`, update the form action with your Formspree endpoint:
 ### Step 3: Configure GitHub Pages
 
 1. Go to your GitHub repository: **Settings** → **Pages**
-2. Under **Source**, select:
-   - Branch: `main`
-   - Folder: `/static`  _(since your HTML files live in the `static/` directory)_
-3. Click **Save**
+2. Under **Build and deployment** → **Source**, select: **GitHub Actions**
+3. Push the code to GitHub. The `.github/workflows/deploy.yml` file included in this repository will automatically build and deploy your `static` folder!
 
 ### Step 4: Push Your Changes
 
 ```bash
 git add .
-git commit -m "Deploy contact form to GitHub Pages"
+git commit -m "Deploy contact form with GitHub actions"
 git push origin main
 ```
 
@@ -171,7 +169,7 @@ The CSS architecture uses a modular approach with CSS custom properties:
 | Variable | Default | Description |
 |----------|---------|-------------|
 | `GMAIL_APP_PASSWORD` | _(none)_ | Gmail App Password for SMTP authentication |
-| `SENDER_EMAIL` | `mackk5504@gmail.com` | Email address used to send notifications |
+| `SENDER_EMAIL` | `example@gmail.com` | Email address used to send notifications |
 
 ### Customization
 
@@ -216,5 +214,5 @@ This project is open source and available under the [MIT License](LICENSE).
 ---
 
 <p align="center">
-  Made with ❤️ by <a href="https://github.com/zinlynhtet">Zin Lyn Htet</a>
+  Made with ❤️ by <a href="https://github.com/zinlynhtet">Zin Linn Htet</a>
 </p>
